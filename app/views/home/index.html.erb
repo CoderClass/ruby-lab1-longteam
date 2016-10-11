@@ -5,5 +5,8 @@
   <p>Please work together to complete as many milestones as you can.</p>
   <p class="lead">
     <a class="btn btn-danger btn-lg" href="http://learning.coderschool.vn/courses/_ruby_on_rails/unit/1#!exercises" role="button" target="_blank">Learn more</a>
-  </p>
+    </p>
+    <% @photos.each do |photo|  %>
+	    <img src="<%= photo.url %>" />    
+    <% end %>
 </div>
