@@ -1,4 +1,7 @@
-<h1>PhotosController#index</h1>
+<h1>View Photo</h1>
+<h4 align="center"><%= link_to 'Upload Photo', new_photo_path %></h4>
 <p>
 <%= render @photos %>
 </p>
+<h6 align="center"><%= paginate @photos %></h6>
+

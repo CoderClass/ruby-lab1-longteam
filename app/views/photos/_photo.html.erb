@@ -1,15 +1,25 @@
 <div class="card photo">
-  <div class="card-header">
-	      <%= photo.username %>
-	          <span class="timestamp pull-xs-right"><%= time_ago_in_words photo.created_at %></span>
-		    </div>
-		      <div class="card-img">
-			          <%= image_tag photo.url %>
-				    </div>
-				      <div class="card-block">
-					          <div>
-							        <%= photo.caption %>
-								    </div>
-								        <%= pluralize photo.likes_count, 'like' %>
-									  </div>
-								  </div>
+    <div class="card-header">
+        <%= photo.username %>
+        <span class="timestamp pull-xs-right">
+            <%= time_ago_in_words photo.created_at %>
+        </span>
+    </div>
+    <div class="card-img">
+        <%= if photo.url 
+                image_tag(photo.url)
+            else
+                image_tag(photo.avatar)
+            end
+        %>
+    </div>
+    <div class="card-block">
+        <h4 class="card-title"><%= photo.caption %></h4>
+        <p class="card-text"><%= pluralize photo.likes_count, 'like' %></p>
+    </div>
+    <% if photo.comments.size > 0 %>
+    <div class="list-group list-group-flush">
+        <%= render photo.comments %>
+    </div>
+    <% end %>
+</div>

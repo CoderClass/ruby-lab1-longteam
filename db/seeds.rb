@@ -24,7 +24,7 @@ gallery.select {|i| i['ext'] == '.png'}
 gallery.each do |image|
   Photo.create username: Faker::Internet.user_name,
     caption: Faker::Lorem.sentence, likes_count: Faker::Number.number(4),
-    url: image['url'], created_at: Faker::Time.between(1.year.ago, Time.now)
+    url: image['url'], created_at: Faker::Time.between(1.hour.ago, Time.now)
 end
 
 # update all photos with missing images
@@ -32,3 +32,8 @@ Photo.where(url: nil).each do |photo|
   photo.update_column :url, "https://unsplash.it/500"
 end
 
+Photo.all.each do |photo|
+    rand(5).times do
+      photo.comments.create! username: Faker::Internet.user_name, body: Faker::Hipster.sentence
+    end
+  end 

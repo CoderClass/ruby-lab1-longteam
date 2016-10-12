@@ -1,3 +1,24 @@
 // Place all the styles related to the PhotosController controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.card.photo {
+  width: 500px;
+  margin: 0 auto 30px;
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+  .avatar {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-left: -15px;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .timestamp {
+    font-size: 0.9em;
+  }
+}
